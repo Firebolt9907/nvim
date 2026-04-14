@@ -19,6 +19,9 @@ return {
   config = function(_, opts)
     require("ufo").setup(opts)
 
+    -- Ensure fold column stays hidden after setup
+    vim.o.foldcolumn = "0"
+
     -- keymaps
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)

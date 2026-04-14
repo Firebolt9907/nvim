@@ -17,7 +17,12 @@ return {
     -- require("lspconfig").ts_ls.setup({})
     vim.lsp.config('ts_ls', {})
 
-    -- 4. Your LSP Keybinds
+    -- 4. Show diagnostics as virtual text to the right of each line
+    vim.diagnostic.config({
+      virtual_text = true,
+    })
+
+    -- 5. Your LSP Keybinds
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function(event)
         local opts = { buffer = event.buf }
